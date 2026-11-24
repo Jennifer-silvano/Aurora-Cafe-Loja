@@ -77,4 +77,4 @@ cd Aurora-Cafe-Loja
 
 ## 👩‍💻 Autora
 
-**Jennifer Silvano** – [GitHub](https://github.com/Jennifer-silvano) · [LinkedIn](https://linkedin.com/in/jennifer-silvano-399369246)
+**Jennifer Silvano** – [GitHub](https://github.com/Jennifer-silvano) · [LinkedIn](https://www.linkedin.com/in/jennifer-silvano-3993b9246/)
