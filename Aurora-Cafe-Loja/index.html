@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Café | Cafés especiais e acessórios</title>
+  <meta name="description" content="Loja virtual de cafés especiais e acessórios. Projeto de portfólio feito com HTML, CSS e JavaScript puro.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Link de acessibilidade: permite pular direto para os produtos usando o teclado -->
+  <a class="pular" href="#produtos">Ir para os produtos</a>
+
+  <header class="topo">
+    <div class="container topo__linha">
+      <a class="logo" href="#inicio" aria-label="Aurora Café - início">☕ Aurora Café</a>
+
+      <div class="busca">
+        <label for="busca" class="sr-only">Buscar produtos</label>
+        <input type="search" id="busca" placeholder="Buscar cafés e acessórios…" autocomplete="off">
+      </div>
+
+      <button class="btn-carrinho" id="abrirCarrinho" type="button" aria-label="Abrir carrinho">
+        <span aria-hidden="true">🛒</span>
+        <span class="contador" id="contador">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Seção principal (hero) -->
+    <section class="hero">
+      <div class="container hero__conteudo">
+        <p class="hero__etiqueta">Frete grátis acima de R$ 150</p>
+        <h1>Cafés especiais, do grão à sua xícara</h1>
+        <p class="hero__texto">Selecionamos pequenos produtores e torramos em lotes pequenos para entregar frescor e sabor de verdade.</p>
+        <a class="btn btn--primario" href="#produtos">Ver produtos</a>
+      </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section class="container catalogo" id="produtos" aria-labelledby="titulo-produtos">
+      <div class="catalogo__cabecalho">
+        <h2 id="titulo-produtos">Nossos produtos</h2>
+
+        <div class="ordenar">
+          <label for="ordem">Ordenar por</label>
+          <select id="ordem">
+            <option value="relevancia">Relevância</option>
+            <option value="menor">Menor preço</option>
+            <option value="maior">Maior preço</option>
+            <option value="nome">Nome (A–Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+
+      <!-- aria-live avisa leitores de tela quando a lista muda -->
+      <p class="resultado" id="resultado" aria-live="polite"></p>
+
+      <div class="grade" id="grade"></div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="beneficios">
+      <div class="container beneficios__grade">
+        <div><span aria-hidden="true">🚚</span><h3>Entrega rápida</h3><p>Enviamos em até 24h úteis.</p></div>
+        <div><span aria-hidden="true">🔒</span><h3>Compra segura</h3><p>Seus dados sempre protegidos.</p></div>
+        <div><span aria-hidden="true">🌱</span><h3>Origem rastreada</h3><p>Direto de pequenos produtores.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <div>
+        <h3>Receba novidades</h3>
+        <p>Cadastre seu e-mail e ganhe 10% de desconto com o cupom <strong>AURORA10</strong>.</p>
+      </div>
+      <form id="formNewsletter" novalidate>
+        <label for="email" class="sr-only">Seu e-mail</label>
+        <div class="newsletter">
+          <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+          <button class="btn btn--primario" type="submit">Quero receber</button>
+        </div>
+        <p class="newsletter__msg" id="msgNewsletter" role="status"></p>
+      </form>
+    </div>
+    <p class="rodape__credito">Projeto de portfólio por Jennifer Silvano. Os produtos e a loja são fictícios.</p>
+  </footer>
+
+  <!-- Carrinho lateral -->
+  <div class="fundo" id="fundo" hidden></div>
+  <aside class="carrinho" id="carrinho" aria-label="Carrinho de compras" aria-hidden="true">
+    <div class="carrinho__topo">
+      <h2>Seu carrinho</h2>
+      <button type="button" class="fechar" id="fecharCarrinho" aria-label="Fechar carrinho">✕</button>
+    </div>
+
+    <div class="carrinho__frete" id="frete"></div>
+
+    <ul class="carrinho__itens" id="itens"></ul>
+
+    <div class="carrinho__rodape" id="rodapeCarrinho">
+      <form class="cupom" id="formCupom">
+        <label for="cupom" class="sr-only">Cupom de desconto</label>
+        <input type="text" id="cupom" placeholder="Cupom (ex.: AURORA10)" autocomplete="off">
+        <button type="submit" class="btn btn--contorno">Aplicar</button>
+      </form>
+      <p class="cupom__msg" id="msgCupom" role="status"></p>
+
+      <dl class="resumo">
+        <div><dt>Subtotal</dt><dd id="subtotal">R$ 0,00</dd></div>
+        <div id="linhaDesconto" hidden><dt>Desconto</dt><dd id="desconto">R$ 0,00</dd></div>
+        <div><dt>Frete</dt><dd id="freteValor">R$ 0,00</dd></div>
+        <div class="resumo__total"><dt>Total</dt><dd id="total">R$ 0,00</dd></div>
+      </dl>
+
+      <button type="button" class="btn btn--primario btn--bloco" id="finalizar">Finalizar compra</button>
+      <button type="button" class="link" id="limpar">Esvaziar carrinho</button>
+    </div>
+  </aside>
+
+  <!-- Aviso rápido (toast) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
